@@ -13,7 +13,7 @@ jobs:
       run: docker login --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_PASSWORD }}
       
     - name: Build image
-      run: docker build -t boreddevco/phoenix-elixir:1.10.2 .
+      run: cd 1.10/ docker build -t boreddevco/phoenix-elixir:1.10.2 .
       
     - name: Publish image
-      run: docker push boreddevco/phoenix-elixir:1.10.2
+      run: cd 1.10/ docker push boreddevco/phoenix-elixir:1.10.2
