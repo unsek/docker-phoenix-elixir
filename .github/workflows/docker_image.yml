@@ -3,7 +3,7 @@ name: Docker CI
 on:
   push:
     branches: [ master ]
-    
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,9 +11,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Login Docker
       run: docker login --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_PASSWORD }}
-      
+
     - name: Build image
-      run: cd 1.10/ docker build -t boreddevco/phoenix-elixir:1.10.2 .
-      
+      run: cd 1.10/ && docker build -t boreddevco/phoenix-elixir:1.10.2 .
+
     - name: Publish image
-      run: cd 1.10/ docker push boreddevco/phoenix-elixir:1.10.2
+      run: cd 1.10/ && docker push boreddevco/phoenix-elixir:1.10.2
